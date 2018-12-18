@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x, y, z;
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+            if(x>0)
+            {
+                z = Math.Max(x,y);
+                Console.WriteLine(z);
+            }
+            else
+            {
+                z = Math.Min(x,y);
+                Console.WriteLine(z);
+            }
+            Console.ReadKey();
+
+        }
+    }
+}
