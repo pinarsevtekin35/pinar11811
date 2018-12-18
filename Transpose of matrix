@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        { //строка=satır   столбец=sütun
+
+            int satir = int.Parse(Console.ReadLine());
+
+            int sutun = int.Parse(Console.ReadLine());
+
+            int[,] arr = new int[satir, sutun];
+
+            for (int i = 0; i < satir; i++)
+            {
+                for (int j = 0; j < sutun; j++)
+                {
+                    Console.Write(i + 1 + ". Satir " + (j + 1) + ". Sütunun Değerini Giriniz: ");
+                    arr[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+
+            Console.WriteLine("Matrix: ");
+            for (int i = 0; i < satir; i++)
+            {
+                for (int j = 0; j < sutun; j++)
+                {
+                    Console.Write(arr[i, j] + " ");
+                }
+                Console.WriteLine(" ");
+            }
+
+            Console.WriteLine("Matrisin Transpozu: ");
+            for (int i = 0; i < sutun; i++)
+            {
+                for (int j = 0; j < satir; j++)
+                {
+                    Console.Write(arr[j, i] + " ");
+                }
+                Console.WriteLine(" ");
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
