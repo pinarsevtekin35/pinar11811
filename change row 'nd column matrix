@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_10
+{
+    class Program
+    {
+        
+            static int n = 5;
+            static int m = 7;  
+
+            static void Main()
+            {
+
+                int[,] arr = new int[n, m];
+                int stolbec1 = 0;
+                int stolbec_end = 0;
+
+                Random rand = new Random();
+
+                Console.WriteLine("Исходный массив: \n");
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++)
+                    {
+                        arr[i, j] = rand.Next(-2, 15);
+                        Console.Write("{0}\t", arr[i, j]);
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Меняем первый столбец и первый положительный\n");
+                stolbec1 = FindFirst(arr); 
+                Reverse(arr, 0, stolbec1);  
+                Show(arr, n, m); 
+
+                Console.WriteLine("\n");
+
+                Console.WriteLine("Меняем первый столбец и последний положительный столбец\n");
+                stolbec_end = FindEnd(arr, stolbec1); 
+                Reverse(arr, 0, stolbec_end); 
+                Show(arr, n, m); 
+
+                Console.WriteLine("\n");
+
+   
+                Console.WriteLine("Меняем стобец М и последний положительный столбец, M={0} \n", m);
+                stolbec_end = FindEnd(arr, stolbec1); 
+                Reverse(arr, m - 1, stolbec_end); 
+                Show(arr, n, m);
+
+                Console.ReadKey();
+
+            }
+            static void Show(int[,] mass, int n, int m)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++) Console.Write("{0}\t", mass[i, j]);
+                    Console.WriteLine();
+                }
+            }
+
+            static void Reverse(int[,] arr, int chto, int nachto) 
+            {
+                for (int i = 0; i < n; i++)  
+                {
+                    int k0 = arr[i, chto];
+                    int k6 = arr[i, nachto];
+                    arr[i, chto] = k6;
+                    arr[i, nachto] = k0;
+                }
+
+            }
+
+            static int FindFirst(int[,] arr) 
+            {
+                int i;
+                int stolbec = 0;
+                for (int j = 0; j < m; j++)
+                {
+                    for (i = 0; i < n; i++) if (arr[i, j] < 0) break;
+
+                    if (i == n)
+                    {
+                        stolbec = j; 
+                        break;
+                    }
+                }
+                return stolbec;
+            }
+
+            static int FindEnd(int[,] arr, int stolb)
+            {
+                int i;
+                int stolbec = 0;
+                for (int j = stolb; j < m; j++)  
+                {
+                    for (i = 0; i < n; i++) if (arr[i, j] < 0) break;
+                    if (i == n) stolbec = j; 
+                }
+                return stolbec;
+            }
+        
+    }
+}
