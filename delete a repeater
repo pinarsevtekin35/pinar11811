@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_7
+
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            {
+                string text = Console.ReadLine();
+
+
+                var letters = new HashSet<char>(text);
+
+
+                foreach (char c in letters) Console.Write(c);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
