@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_5
+{
+    class Program
+    {
+        
+
+        static void Main(string[] args)
+        {
+
+            int[] number = new int[] { 5,20,12,22,25,-95,61,-89,-4,2};
+           
+            int x = int.Parse(Console.ReadLine());
+
+            if (x == 9)
+            {
+                Console.WriteLine("Number {0}", number[9]);
+                Console.WriteLine("Neighbor {0}", number[8]);
+                int neigh = number[9] - number[8];
+
+                  if (neigh < 0)
+                      { neigh = neigh * (-1); }
+                  Console.WriteLine("Difference: {0}", neigh);
+            }
+            if (x == 0)
+            {
+                Console.WriteLine($" Number { number[0]}");
+                Console.WriteLine($" Neighbor{ number[0]}");
+                int neigh = number[0] - number[1];
+
+                  if (neigh < 0)
+                     { neigh = neigh * (-1); }
+            
+                Console.WriteLine($"Difference : {neigh}");
+            }
+           
+
+            if (x < 9 && x > 0)
+            {
+                Console.WriteLine("Number : {0}", number[x]);
+                Console.WriteLine("Eski nm : {0}", number[x - 1]);
+                Console.WriteLine("Sonraki nm : {0}", number[x + 1]);
+
+
+                int kom_1 = number[x] - number[x - 1];
+                if (kom_1 < 0) { kom_1 = kom_1 * (-1); }
+
+                int kom_2 = number[x] - number[x + 1];
+                if (kom_2 < 0) { kom_2 = kom_2 * (-1); }
+
+
+
+                Console.WriteLine("1. neighbor : {0}", kom_1);
+                Console.WriteLine("2. neighbor : {0}", kom_2);
+            }
+
+            Console.ReadKey();
+
+        }
+    }
+}
