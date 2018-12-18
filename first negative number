@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] massiv = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Enter {0} number", i + 1);
+                massiv[i] = int.Parse(Console.ReadLine());
+            }
+           
+            foreach (var i in massiv)
+            {
+                if (i < 0)
+                {
+                    Console.WriteLine("first negative number = {0}", i);
+                    break;
+                }
+               
+            }
+            
+            Console.ReadKey();
+
+        }
+    }
+}
+
