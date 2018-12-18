@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace question_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] num = new int[10] { 10,20,66,14,59,-8,-8,2,1,10 };
+            int maks_neg = 0, min_neg = 0, maks_plus = 0, min_plus = 0,summ=0;
+
+            for (int i = 0; i < num.Length; i++)
+            {
+                if (num[i] > maks_neg)
+                {
+                    maks_neg = num[i];
+                    maks_plus = i + 1;
+                }
+
+            }
+            Console.WriteLine($"Maksi negative{maks_neg}");
+            Console.WriteLine($"Maksi positive{maks_plus}");
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (num[i] < min_neg)
+                {
+                    min_neg = num[i];
+                    min_plus = i + 1;
+                }
+            }
+            Console.WriteLine($"Minimum negative{min_neg}");
+            Console.WriteLine($"Minumum positive{min_plus}");
+
+            if (min_plus < maks_plus)
+            {
+                for (int i = min_plus; i < maks_plus; i++)
+                {
+                    summ = num[i] += num[i] - num[0];
+                }
+                Console.WriteLine($"Summa{summ}");
+            }
+            if (maks_plus < min_plus)
+            {
+                for (int i = maks_plus; i < min_plus - 1; i++)
+                {
+
+                    Console.WriteLine(num[i]);
+                    summ = num[i] + num[i] - num[0];
+                }
+                Console.WriteLine($"Summa{summ}");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
